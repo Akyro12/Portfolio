@@ -6,7 +6,7 @@
     <title>Pierre Laine - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #1a365d;
@@ -19,26 +19,18 @@
             --border: #e2e8f0;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: 'Source Sans 3', sans-serif;
             color: var(--text);
             line-height: 1.7;
             background: var(--bg);
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            color: var(--primary);
-        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary); }
 
-        /* Header */
+        /* ── HEADER ── */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
@@ -47,822 +39,504 @@
             position: relative;
             overflow: hidden;
         }
-
         header::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            position: absolute; inset: 0;
             background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
         }
-
-        header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            color: white;
-            position: relative;
-            z-index: 1;
-            letter-spacing: -0.5px;
-        }
-
-        header .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.95;
-            font-weight: 300;
-            position: relative;
-            z-index: 1;
-            margin-bottom: 30px;
-        }
-
-        .header-links {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-            margin-top: 30px;
-        }
-
+        header h1 { font-size: 3.5rem; margin-bottom: 10px; color: white; position: relative; z-index: 1; }
+        header .subtitle { font-size: 1.2rem; opacity: .9; font-weight: 300; position: relative; z-index: 1; margin-bottom: 30px; }
+        .header-links { display: flex; gap: 20px; justify-content: center; position: relative; z-index: 1; flex-wrap: wrap; }
         .header-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            padding: 10px 20px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            color: white; text-decoration: none; font-size: .95rem;
+            padding: 10px 22px; border: 2px solid rgba(255,255,255,.35); border-radius: 5px;
+            display: inline-flex; align-items: center; gap: 8px; transition: all .3s;
         }
+        .header-links a:hover { background: rgba(255,255,255,.12); border-color: white; transform: translateY(-2px); }
 
-        .header-links a:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Navigation */
+        /* ── NAV ── */
         nav {
-            background: var(--bg);
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: var(--bg); padding: 18px 20px;
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,.09);
         }
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 40px; max-width: 900px; margin: 0 auto; flex-wrap: wrap; }
+        nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: .95rem; transition: color .3s; position: relative; }
+        nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width .3s; }
+        nav a:hover { color: var(--accent); }
+        nav a:hover::after { width: 100%; }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 600;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        section {
-            margin-bottom: 100px;
-        }
+        /* ── CONTAINER ── */
+        .container { max-width: 860px; margin: 0 auto; padding: 80px 24px; }
+        section { margin-bottom: 100px; }
 
         section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-align: center;
-            position: relative;
-            padding-bottom: 20px;
+            font-size: 2.4rem; margin-bottom: 50px; text-align: center;
+            position: relative; padding-bottom: 18px;
         }
-
         section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
+            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 70px; height: 4px; background: var(--accent); border-radius: 2px;
         }
 
-        /* About Section */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.15rem;
-            line-height: 1.9;
-            color: var(--text-light);
-        }
+        /* ── ABOUT ── */
+        .about-content { font-size: 1.1rem; line-height: 1.9; color: var(--text-light); }
+        .about-content p { margin-bottom: 20px; }
 
-        .about-content p {
-            margin-bottom: 25px;
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
+        /* ── PROJECTS — vertical stack ── */
+        .projects-list { display: flex; flex-direction: column; gap: 60px; }
 
         .project-card {
             background: var(--bg);
             border: 2px solid var(--border);
-            border-radius: 10px;
-            padding: 35px;
-            transition: all 0.4s ease;
+            border-radius: 12px;
+            padding: 40px;
             position: relative;
             overflow: hidden;
+            transition: box-shadow .4s, border-color .4s;
+            animation: fadeInUp .6s ease backwards;
         }
-
+        .project-card:hover { box-shadow: 0 20px 48px rgba(0,0,0,.10); border-color: var(--accent); }
         .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
             background: linear-gradient(90deg, var(--accent), var(--secondary));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
+            transform: scaleX(0); transform-origin: left; transition: transform .4s;
         }
+        .project-card:hover::before { transform: scaleX(1); }
 
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-            border-color: var(--accent);
-        }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
+        .project-card:nth-child(1) { animation-delay: .1s; }
+        .project-card:nth-child(2) { animation-delay: .2s; }
+        .project-card:nth-child(3) { animation-delay: .3s; }
 
         .project-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--bg-secondary);
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            z-index: 0;
+            font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 700;
+            color: var(--bg-secondary); position: absolute; top: 20px; right: 30px; line-height: 1; user-select: none;
         }
 
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-            position: relative;
-            z-index: 1;
-        }
+        .project-card h3 { font-size: 1.6rem; margin-bottom: 6px; color: var(--primary); position: relative; z-index: 1; }
+        .project-context { font-size: .9rem; color: var(--text-light); margin-bottom: 20px; font-style: italic; }
 
-        .project-context {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 20px;
-            font-style: italic;
-        }
+        .project-description { margin-bottom: 20px; }
+        .project-description p { margin-bottom: 10px; }
+        .project-description ul { margin-left: 20px; }
+        .project-description li { margin-bottom: 6px; color: var(--text-light); }
 
-        .project-description {
-            margin-bottom: 25px;
-            color: var(--text);
-        }
-
-        .project-description ul {
-            margin-left: 20px;
-            margin-top: 15px;
-        }
-
-        .project-description li {
-            margin-bottom: 8px;
-            color: var(--text-light);
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
-
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
         .tech-tag {
-            background: var(--bg-secondary);
-            color: var(--secondary);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
+            background: var(--bg-secondary); color: var(--secondary);
+            padding: 5px 13px; border-radius: 20px; font-size: .82rem; font-weight: 600;
+            border: 1px solid var(--border); transition: all .25s;
         }
+        .tech-tag:hover { background: var(--secondary); color: white; border-color: var(--secondary); }
 
-        .tech-tag:hover {
-            background: var(--secondary);
-            color: white;
-            border-color: var(--secondary);
-        }
+        /* ── GALLERY ── */
+        .project-gallery { border-top: 2px solid var(--border); padding-top: 28px; margin-top: 10px; }
+        .gallery-title { font-size: 1rem; font-weight: 600; color: var(--secondary); margin-bottom: 20px; text-align: center; }
 
-        /* Gallery Section */
-        .project-gallery {
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 2px solid var(--border);
-        }
-
-        .gallery-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
+        /* Grid adaptatif : toujours centré, max 3 colonnes */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
+            align-items: start;   /* ← alignement haut, pas étirement */
         }
 
         .gallery-item {
-            position: relative;
-            overflow: hidden;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,.10);
             background: var(--bg-secondary);
+            transition: transform .3s, box-shadow .3s;
+            display: flex;
+            flex-direction: column;
         }
+        .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.14); }
 
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
+        /* 
+         * Toutes les images partagent la même hauteur fixe dans la zone image,
+         * avec object-fit: contain pour ne pas couper — adapté portrait ET paysage.
+         */
         .gallery-item img {
             width: 100%;
-            height: auto;
-            object-fit: contain;
-            border-bottom: 2px solid var(--border);
+            height: 280px;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border);
         }
 
-    
-        .big-img {
-         height: 100px !important;
-          width: 100%;
-        object-fit: contain;
-        }
-        .gallery-item.placeholder img {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, #e2e8f0 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Pour les images portrait (projet 3) */
+        .gallery-item.portrait img {
+            height: 400px;
+            object-fit: contain;
+            background: #edf2f7;
         }
 
         .gallery-caption {
-            padding: 12px 15px;
-            font-size: 0.9rem;
+            padding: 10px 14px;
+            font-size: .85rem;
             color: var(--text);
             text-align: center;
             line-height: 1.4;
             background: white;
+            flex: 1;
         }
 
-        /* Placeholder for images */
-        .image-placeholder {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 0.85rem;
-            text-align: center;
-            padding: 20px;
-            border-bottom: 2px solid var(--border);
+        /* ── Modal ── */
+        #modal-overlay {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,.82); z-index: 9999;
+            align-items: center; justify-content: center; padding: 20px;
         }
+        #modal-overlay.open { display: flex; }
+        #modal-overlay img { max-width: 90vw; max-height: 88vh; border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,.5); }
+        #modal-close {
+            position: absolute; top: 18px; right: 24px;
+            color: white; font-size: 2.2rem; cursor: pointer; line-height: 1;
+            background: none; border: none; transition: transform .2s;
+        }
+        #modal-close:hover { transform: scale(1.15); }
 
-        /* Skills Section */
+        /* ── SKILLS ── */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
         }
-
         .skill-category {
-            background: var(--bg-secondary);
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 4px solid var(--accent);
-            transition: all 0.3s ease;
+            background: var(--bg-secondary); padding: 28px; border-radius: 10px;
+            border-left: 4px solid var(--accent); transition: all .3s;
         }
-
-        .skill-category:hover {
-            transform: translateX(5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        .skill-category h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--secondary);
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
+        .skill-category:hover { transform: translateX(5px); box-shadow: 0 8px 28px rgba(0,0,0,.07); }
+        .skill-category h3 { font-size: 1.2rem; margin-bottom: 16px; color: var(--secondary); }
+        .skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
         .skill-item {
-            background: white;
-            padding: 8px 16px;
-            border-radius: 5px;
-            font-size: 0.95rem;
-            color: var(--text);
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
+            background: white; padding: 7px 14px; border-radius: 5px;
+            font-size: .9rem; color: var(--text); border: 1px solid var(--border); transition: all .25s;
         }
+        .skill-item:hover { border-color: var(--secondary); color: var(--secondary); transform: scale(1.04); }
 
-        .skill-item:hover {
-            border-color: var(--secondary);
-            color: var(--secondary);
-            transform: scale(1.05);
-        }
-
-        /* Contact Section */
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
+        /* ── CONTACT ── */
+        .contact-content { max-width: 580px; margin: 0 auto; text-align: center; }
+        .contact-links { display: flex; flex-direction: column; gap: 18px; margin-top: 36px; }
         .contact-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
-            background: var(--bg-secondary);
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            text-decoration: none;
-            color: var(--text);
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: center; gap: 14px;
+            padding: 18px; background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 10px; text-decoration: none; color: var(--text); font-size: 1.05rem;
+            transition: all .3s;
         }
+        .contact-link:hover { background: var(--primary); color: white; border-color: var(--primary); transform: translateX(8px); }
 
-        .contact-link:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            transform: translateX(10px);
-        }
+        /* ── FOOTER ── */
+        footer { background: var(--primary); color: white; text-align: center; padding: 36px 20px; font-size: .9rem; }
 
-        .contact-link svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.95rem;
-        }
-
-        /* Instructions Box */
-        .instructions-box {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
-            border-radius: 8px;
-            padding: 15px 20px;
-            margin: 20px 0;
-            font-size: 0.9rem;
-            color: #856404;
-        }
-
-        .instructions-box strong {
-            color: #856404;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            header .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .header-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-
-            section h2 {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .container {
-                padding: 50px 20px;
-            }
-        }
-
-        /* Animations */
+        /* ── ANIMATIONS ── */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        .project-card {
-            animation: fadeInUp 0.6s ease backwards;
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            header h1 { font-size: 2.4rem; }
+            .project-card { padding: 28px 22px; }
+            .project-number { font-size: 3.5rem; }
+            section h2 { font-size: 2rem; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
         }
-
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        @media (max-width: 420px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Pierre Laine</h1>
-        <p class="subtitle">Étudiant en informatique, spécialisé en administration d'infrastructures et supervision</p>
-        <div class="header-links">
-            <a href="https://www.linkedin.com/in/pierre-laine-434835273/" target="_blank">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-                LinkedIn
-            </a>
-            <a href="mailto:pierrelaine15@hotmail.com">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
-                </svg>
-                Email
-            </a>
-        </div>
-    </header>
 
-    <nav>
-        <ul>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#projects">Projets</a></li>
-            <li><a href="#skills">Compétences</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<!-- ── MODAL ── -->
+<div id="modal-overlay">
+    <button id="modal-close" onclick="closeModal()">&#x2715;</button>
+    <img id="modal-img" src="" alt="">
+</div>
 
-    <div class="container">
-        <!-- About Section -->
-        <section id="about">
-            <h2>À propos</h2>
-            <div class="about-content">
-                <p>
-                    Actuellement en <strong>Bachelor CDA (Concepteur Développeur d'Applications)</strong>, 
-                    je me spécialise dans l'administration d'infrastructures et la supervision de systèmes.
-                </p>
-                <p>
-                    Passionné par les défis techniques, j'ai développé une expertise en supervision réseau, 
-                    développement bas niveau et création d'applications web. Mon parcours m'a permis d'acquérir 
-                    une vision complète des enjeux informatiques, de l'infrastructure à l'application.
-                </p>
-                <p>
-                    Je recherche continuellement à approfondir mes compétences techniques et à relever 
-                    de nouveaux défis dans le domaine de l'informatique.
-                </p>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>Projets</h2>
-            
-            <div class="projects-grid">
-                <!-- Project 1 - Centreon -->
-                <div class="project-card">
-                    <span class="project-number">01</span>
-                    <h3>Supervision d'infrastructure avec Centreon</h3>
-                    <p class="project-context">Projet de supervision pour une entreprise e-commerce</p>
-                    <div class="project-description">
-                        <p><strong>Objectif :</strong> Détecter les pannes, anticiper les incidents et améliorer la disponibilité d'un site web, API et base de données.</p>
-                        <ul>
-                            <li>Configuration de la supervision HTTP/HTTPS (check_http)</li>
-                            <li>Gestion des seuils (temps de réponse, erreurs 4xx / 5xx)</li>
-                            <li>Supervision base de données (connexions, performance, stockage)</li>
-                            <li>Monitoring système (CPU, RAM, disque) avec CMA</li>
-                            <li>Développement d'un plugin custom en JSON</li>
-                            <li>Mise en place d'alertes WARNING / CRITICAL</li>
-                        </ul>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Centreon</span>
-                        <span class="tech-tag">Linux</span>
-                        <span class="tech-tag">SNMP</span>
-                        <span class="tech-tag">CMA</span>
-                        <span class="tech-tag">JSON</span>
-                        <span class="tech-tag">MySQL</span>
-                    </div>
-
-                    <!-- Gallery for Project 1 -->
-                    <div class="project-gallery">
-                        <h4 class="gallery-title"> Captures d'écran</h4>
-                        <div class="gallery-grid">
-                            <div class="gallery-item">
-                             <img class="big-img" src="https://i.imgur.com/g8byJLj.png" onclick="openModal(this.src)">
-                            <div class="gallery-item">
-                            <div class="gallery-caption">Dashboard DSI</div>
-                            <img class="big-img" src="https://i.imgur.com/ypgfLI4.png" onclick="openModal(this.src)">
-                             <div class="gallery-caption">Dashboard Technical</div>
-                            </div>
-
-                            <div class="gallery-item">
-                            <img class="big-img" src="https://imgur.com/bFkOR8i.png" onclick="openModal(this.src)">
-                            <div class="gallery-caption">Tableau de monitoring montrant des services critiques</div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 - RFID -->
-                <div class="project-card">
-                    <span class="project-number">02</span>
-                    <h3>Système de contrôle d'accès RFID</h3>
-                    <p class="project-context">Projet BTS - Sécurisation d'accès par badge RFID</p>
-                    <div class="project-description">
-                        <p><strong>Objectif :</strong> Créer un système de contrôle d'accès sécurisé avec communication Raspberry Pi / Arduino.</p>
-                        <ul>
-                            <li>Développement en C sur Raspberry Pi</li>
-                            <li>Lecture port série /dev/ttyUSB0</li>
-                            <li>Traitement et formatage des UID RFID</li>
-                            <li>Vérification via liste de badges autorisés</li>
-                            <li>Communication série avec Arduino (UART)</li>
-                            <li>Intégration écran LCD et système de relais</li>
-                        </ul>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">C</span>
-                        <span class="tech-tag">Arduino</span>
-                        <span class="tech-tag">Raspberry Pi</span>
-                        <span class="tech-tag">RFID</span>
-                        <span class="tech-tag">UART</span>
-                        <span class="tech-tag">Linux</span>
-                    </div>
-
-                    <!-- Gallery for Project 2 -->
-                    <div class="project-gallery">
-                        <h4 class="gallery-title"> Captures d'écran</h4>
-                        <div class="gallery-grid">
-                            <div class="gallery-item">
-                                    <img src="https://imgur.com/lg9KiRf.png" alt=Setup complet>
-                                <div class="gallery-caption">Photo complète du setup</div>
-                            </div>
-                            <div class="gallery-item">
-                                   <img src="https://imgur.com/hFDgJ2d.png" alt=Afficheur météo>
-                                <div class="gallery-caption">Afficheur retransmettant les données météo mesurées par une BDD distante</div>
-                            </div>
-                            <div class="gallery-item">
-                                <img src="https://imgur.com/3gYw1Wl.png" alt=Communication>
-                                <div class="gallery-caption">Données transmises par la communication Raspberry Pi - Arduino permettant l'ouverture de la gâche</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 - React/Last.fm -->
-                <div class="project-card">
-                    <span class="project-number">03</span>
-                    <h3>Application React - Intégration API Last.fm</h3>
-                    <p class="project-context">Application web React - Découverte musicale</p>
-                    <div class="project-description">
-                        <p><strong>Objectif :</strong> Créer une application permettant de découvrir et gérer ses artistes préférés via l'API Last.fm.</p>
-                        <ul>
-                            <li>Développement frontend avec React</li>
-                            <li>Intégration de l'API Last.fm</li>
-                            <li>Affichage des données artistes (bio, stats, top tracks)</li>
-                            <li>Système de favoris avec gestion locale</li>
-                            <li>Interface responsive et moderne</li>
-                            <li>Gestion d'état et manipulation de données API</li>
-                        </ul>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">API REST</span>
-                        <span class="tech-tag">Last.fm API</span>
-                        <span class="tech-tag">HTML/CSS</span>
-                    </div>
-
-                    <!-- Gallery for Project 3 -->
-                    <<div class="project-gallery">
-                 <h4 class="gallery-title"> Captures d'écran</h4>
-                <div class="gallery-grid">
-               <div class="gallery-item">
-                 <img src="https://i.imgur.com/W48SB49.png" alt="Données artiste">
-                 <div class="gallery-caption">Différentes données retournées par l'API Last.fm sur l'artiste choisi</div>
-                 </div>
-                <div class="gallery-item">
-             <img src="https://i.imgur.com/8GWkYTT.png" alt="Biographie">
-            <div class="gallery-caption">Biographie de l'artiste avec éléments retournés par l'API</div>
-               </div>
-                  <div class="gallery-item">
-             <img src="https://i.imgur.com/f4LeANR.png" alt="Favoris">
-            <div class="gallery-caption">Artistes favoris ajoutés par l'utilisateur avec date, heure et possibilité de suppression</div>
-              </div>
-              </div>
-                </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>Compétences</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Langages de programmation</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">C</span>
-                        <span class="skill-item">PHP</span>
-                        <span class="skill-item">JavaScript</span>
-                        <span class="skill-item">SQL</span>
-                        <span class="skill-item">Bash</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Frameworks & Bibliothèques</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">React</span>
-                        <span class="skill-item">Laravel</span>
-                        <span class="skill-item">Centreon</span>
-                        <span class="skill-item">Git</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Systèmes & Infrastructure</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Linux</span>
-                        <span class="skill-item">SNMP</span>
-                        <span class="skill-item">MySQL</span>
-                        <span class="skill-item">Apache</span>
-                        <span class="skill-item">Supervision</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Matériel & IoT</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Arduino</span>
-                        <span class="skill-item">Raspberry Pi</span>
-                        <span class="skill-item">RFID</span>
-                        <span class="skill-item">UART</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="contact-content">
-                <p>N'hésitez pas à me contacter pour échanger sur des projets, des opportunités professionnelles ou simplement pour discuter technique !</p>
-                <div class="contact-links">
-                    <a href="mailto:pierrelaine15@hotmail.com" class="contact-link">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
-                        </svg>
-                        pierrelaine15@hotmail.com
-                    </a>
-                    <a href="https://www.linkedin.com/in/pierre-laine-434835273/" target="_blank" class="contact-link">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                        LinkedIn
-                    </a>
-                </div>
-            </div>
-        </section>
+<!-- ── HEADER ── -->
+<header>
+    <h1>Pierre Laine</h1>
+    <p class="subtitle">Étudiant en informatique — Administration d'infrastructures &amp; Supervision</p>
+    <div class="header-links">
+        <a href="https://www.linkedin.com/in/pierre-laine-434835273/" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            LinkedIn
+        </a>
+        <a href="mailto:pierrelaine15@hotmail.com">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+            Email
+        </a>
     </div>
+</header>
 
-    <footer>
-        <p>&copy; 2025 Pierre Laine - Tous droits réservés</p>
-    </footer>
+<!-- ── NAV ── -->
+<nav>
+    <ul>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+<div class="container">
+
+    <!-- À PROPOS -->
+    <section id="about">
+        <h2>À propos</h2>
+        <div class="about-content">
+            <p>Actuellement en <strong>Bachelor CDA (Concepteur Développeur d'Applications)</strong>, je me spécialise dans l'administration d'infrastructures et la supervision de systèmes.</p>
+            <p>Passionné par les défis techniques, j'ai développé une expertise en supervision réseau, développement bas niveau et création d'applications web. Mon parcours m'a permis d'acquérir une vision complète des enjeux informatiques, de l'infrastructure à l'application.</p>
+            <p>Je recherche continuellement à approfondir mes compétences techniques et à relever de nouveaux défis dans le domaine de l'informatique.</p>
+        </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projects">
+        <h2>Projets</h2>
+        <div class="projects-list">
+
+            <!-- ── PROJET 1 – Centreon ── -->
+            <div class="project-card">
+                <span class="project-number">01</span>
+                <h3>Supervision d'infrastructure avec Centreon</h3>
+                <p class="project-context">Projet de supervision pour une entreprise e-commerce</p>
+                <div class="project-description">
+                    <p><strong>Objectif :</strong> Détecter les pannes, anticiper les incidents et améliorer la disponibilité d'un site web, API et base de données.</p>
+                    <ul>
+                        <li>Configuration de la supervision HTTP/HTTPS (check_http)</li>
+                        <li>Gestion des seuils (temps de réponse, erreurs 4xx / 5xx)</li>
+                        <li>Supervision base de données (connexions, performance, stockage)</li>
+                        <li>Monitoring système (CPU, RAM, disque) avec CMA</li>
+                        <li>Développement d'un plugin custom en JSON</li>
+                        <li>Mise en place d'alertes WARNING / CRITICAL</li>
+                    </ul>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Centreon</span>
+                    <span class="tech-tag">Linux</span>
+                    <span class="tech-tag">SNMP</span>
+                    <span class="tech-tag">CMA</span>
+                    <span class="tech-tag">JSON</span>
+                    <span class="tech-tag">MySQL</span>
+                </div>
+                <div class="project-gallery">
+                    <h4 class="gallery-title">Captures d'écran</h4>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://i.imgur.com/g8byJLj.png" alt="Dashboard DSI" onclick="openModal(this.src)">
+                            <div class="gallery-caption">Dashboard DSI</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://i.imgur.com/ypgfLI4.png" alt="Dashboard Technical" onclick="openModal(this.src)">
+                            <div class="gallery-caption">Dashboard Technical</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://imgur.com/bFkOR8i.png" alt="Monitoring critique" onclick="openModal(this.src)">
+                            <div class="gallery-caption">Tableau de monitoring — services critiques</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── PROJET 2 – RFID ── -->
+            <div class="project-card">
+                <span class="project-number">02</span>
+                <h3>Système de contrôle d'accès RFID</h3>
+                <p class="project-context">Projet BTS — Sécurisation d'accès par badge RFID</p>
+                <div class="project-description">
+                    <p><strong>Objectif :</strong> Créer un système de contrôle d'accès sécurisé avec communication Raspberry Pi / Arduino.</p>
+                    <ul>
+                        <li>Développement en C sur Raspberry Pi</li>
+                        <li>Lecture port série /dev/ttyUSB0</li>
+                        <li>Traitement et formatage des UID RFID</li>
+                        <li>Vérification via liste de badges autorisés</li>
+                        <li>Communication série avec Arduino (UART)</li>
+                        <li>Intégration écran LCD et système de relais</li>
+                    </ul>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">C</span>
+                    <span class="tech-tag">Arduino</span>
+                    <span class="tech-tag">Raspberry Pi</span>
+                    <span class="tech-tag">RFID</span>
+                    <span class="tech-tag">UART</span>
+                    <span class="tech-tag">Linux</span>
+                </div>
+                <div class="project-gallery">
+                    <h4 class="gallery-title">Captures d'écran</h4>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://imgur.com/lg9KiRf.png" alt="Setup complet" onclick="openModal(this.src)">
+                            <div class="gallery-caption">Photo complète du setup</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://imgur.com/hFDgJ2d.png" alt="Afficheur météo" onclick="openModal(this.src)">
+                            <div class="gallery-caption">Afficheur retransmettant les données météo d'une BDD distante</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://imgur.com/3gYw1Wl.png" alt="Communication série" onclick="openModal(this.src)">
+                            <div class="gallery-caption">Données transmises par la communication Raspberry Pi → Arduino</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── PROJET 3 – React / Last.fm ── -->
+            <div class="project-card">
+                <span class="project-number">03</span>
+                <h3>Application React — Intégration API Last.fm</h3>
+                <p class="project-context">Application web React — Découverte musicale</p>
+                <div class="project-description">
+                    <p><strong>Objectif :</strong> Créer une application permettant de découvrir et gérer ses artistes préférés via l'API Last.fm.</p>
+                    <ul>
+                        <li>Développement frontend avec React</li>
+                        <li>Intégration de l'API Last.fm</li>
+                        <li>Affichage des données artistes (bio, stats, top tracks)</li>
+                        <li>Système de favoris avec gestion locale</li>
+                        <li>Interface responsive et moderne</li>
+                        <li>Gestion d'état et manipulation de données API</li>
+                    </ul>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">API REST</span>
+                    <span class="tech-tag">Last.fm API</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                </div>
+                <div class="project-gallery">
+                    <h4 class="gallery-title">Captures d'écran</h4>
+                    <!-- 3 images portrait → on leur donne plus de hauteur -->
+                    <div class="gallery-grid">
+                        <div class="gallery-item portrait">
+                            <img src="https://i.imgur.com/W48SB49.png" alt="Données artiste" onclick="openModal(this.src)">
+                            <div class="gallery-caption">Données retournées par l'API Last.fm sur l'artiste choisi</div>
+                        </div>
+                        <div class="gallery-item portrait">
+                            <img src="https://i.imgur.com/8GWkYTT.png" alt="Biographie" onclick="openModal(this.src)">
+                            <div class="gallery-caption">Biographie de l'artiste avec éléments retournés par l'API</div>
+                        </div>
+                        <div class="gallery-item portrait">
+                            <img src="https://i.imgur.com/f4LeANR.png" alt="Favoris" onclick="openModal(this.src)">
+                            <div class="gallery-caption">Artistes favoris avec date, heure et suppression</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section id="skills">
+        <h2>Compétences</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Langages de programmation</h3>
+                <div class="skill-list">
+                    <span class="skill-item">C</span>
+                    <span class="skill-item">PHP</span>
+                    <span class="skill-item">JavaScript</span>
+                    <span class="skill-item">SQL</span>
+                    <span class="skill-item">Bash</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Frameworks &amp; Bibliothèques</h3>
+                <div class="skill-list">
+                    <span class="skill-item">React</span>
+                    <span class="skill-item">Laravel</span>
+                    <span class="skill-item">Centreon</span>
+                    <span class="skill-item">Git</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Systèmes &amp; Infrastructure</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Linux</span>
+                    <span class="skill-item">SNMP</span>
+                    <span class="skill-item">MySQL</span>
+                    <span class="skill-item">Apache</span>
+                    <span class="skill-item">Supervision</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Matériel &amp; IoT</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Arduino</span>
+                    <span class="skill-item">Raspberry Pi</span>
+                    <span class="skill-item">RFID</span>
+                    <span class="skill-item">UART</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-content">
+            <p>N'hésitez pas à me contacter pour échanger sur des projets, des opportunités professionnelles ou simplement pour discuter technique !</p>
+            <div class="contact-links">
+                <a href="mailto:pierrelaine15@hotmail.com" class="contact-link">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                    pierrelaine15@hotmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/pierre-laine-434835273/" target="_blank" class="contact-link">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 Pierre Laine — Tous droits réservés</p>
+</footer>
+
+<script>
+    // ── Smooth scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
+    });
 
-        // Navbar active state on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
+    // ── Nav active state ──
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        const links = document.querySelectorAll('nav a');
+        let current = '';
+        sections.forEach(s => { if (pageYOffset >= s.offsetTop - 200) current = s.id; });
+        links.forEach(l => {
+            l.classList.remove('active');
+            if (l.getAttribute('href').slice(1) === current) l.classList.add('active');
         });
-    </script>
+    });
+
+    // ── Modal ──
+    function openModal(src) {
+        document.getElementById('modal-img').src = src;
+        document.getElementById('modal-overlay').classList.add('open');
+    }
+    function closeModal() {
+        document.getElementById('modal-overlay').classList.remove('open');
+        document.getElementById('modal-img').src = '';
+    }
+    document.getElementById('modal-overlay').addEventListener('click', e => {
+        if (e.target === e.currentTarget) closeModal();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
 </body>
 </html>
