@@ -345,6 +345,11 @@
             border-bottom: 2px solid var(--border);
         }
 
+    
+        .big-img {
+         height: 320px;
+        object-fit: contain;
+        }
         .gallery-item.placeholder img {
             background: linear-gradient(135deg, var(--bg-secondary) 0%, #e2e8f0 100%);
             display: flex;
@@ -636,17 +641,15 @@
                         <h4 class="gallery-title"> Captures d'écran</h4>
                         <div class="gallery-grid">
                             <div class="gallery-item">
-                             <img src="https://i.imgur.com/g8byJLj.png" alt="Dashboard DSI">
-                             <div class="gallery-caption">Dashboard DSI</div>
-                            </div>
-
+                             <img class="big-img" src="https://i.imgur.com/g8byJLj.png" onclick="openModal(this.src)">
                             <div class="gallery-item">
-                            <img src="https://i.imgur.com/ypgfLI4.png" alt="Dashboard Technical">
+                            <div class="gallery-caption">Dashboard DSI</div>
+                            <img class="big-img" src="https://i.imgur.com/ypgfLI4.png" onclick="openModal(this.src)">
                              <div class="gallery-caption">Dashboard Technical</div>
                             </div>
 
                             <div class="gallery-item">
-                            <img src="https://imgur.com/.png" alt="Monitoring">
+                            <img class="big-img" src="https://imgur.com/gUNIHTB.png" onclick="openModal(this.src)">
                             <div class="gallery-caption">Tableau de monitoring montrant des services critiques</div>
                             </div>
                             </div>
